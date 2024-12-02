@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iT7B7d2LXkz5D8r6ePb6wIjKMSD2NQ3AfY8/Jr59BtrV98MZ1J6XsGBe/" crossorigin="anonymous">
+    <style>
+        /*------------------------------------------------------------------------------------------------------------------------------------*/
+
+        header {
+            background-color: #000000;
+            background-size: cover;
+            background-position: center;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .header-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container img {
+            width: 700px;
+            height: auto;
+        }
+
+        .gif-container iframe {
+            width: 80px;
+            height: 80px;
+            border: none;
+        }
+
+        .navbar-container nav {
+            display: flex;
+            justify-content: center;
+            gap: 5rem;
+        }
+
+        .navbar-container nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-container nav a:hover {
+            color: #A9A9A9;
+        }
+
+        @media (max-width: 768px) {
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .logo-container img {
+                width: 200px;
+                height: auto;
+            }
+
+            .gif-container iframe {
+                width: 50px;
+                height: 50px;
+            }
+
+            .navbar-container nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .navbar-container nav a {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 1rem 0;
+            }
+
+            .logo-container img {
+                width: 150px;
+            }
+
+            .navbar-container nav {
+                gap: 0.5rem;
+            }
+
+            .navbar-container nav a {
+                font-size: 0.9rem;
+            }
+        }
+
+        .profile {
+            height: 100vh;
+            padding-top: 5rem;
+            overflow: hidden;
+            text-align: center;
+            color: white;
+            background-color: #333333;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .profile__container {
+            height: 100%;
+            position: relative;
+        }
+
+        .profile h1,
+        .profile h5 {
+            margin: 0.5rem 0;
+        }
+
+        .profile h5 {
+            font-weight: 300;
+
+        }
+
+        .profile .text-light {
+            color: #000000;
+        }
+
+        .profile .cta {
+            margin-top: 2.4rem;
+            display: flex;
+            gap: 1.3rem;
+            justify-content: center;
+        }
+
+        .profile .btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #0085FF;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .profile .btn:hover {
+            color: white;
+            background-color: #FF5733;
+        }
+
+        .profile .btn-primary {
+            background-color: #32CD32;
+            color: #708090;
+        }
+
+        .profile .btn-primary:hover {
+            background-color: #00FFFF;
+            color: white;
+        }
+
+        .profile .me {
+            background: linear-gradient(var(--color-light), transparent);
+            width: 18rem;
+            height: 18.75rem;
+            position: absolute;
+            left: calc(50% - 9.375rem);
+            margin-top: 14rem;
+            clip-path: polygon(50% 0%,
+                    100% 25%,
+                    100% 75%,
+                    50% 100%,
+                    0% 75%,
+                    0% 25%);
+            overflow: hidden;
+        }
+
+        .profile .me img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .profile {
+                height: 100vh;
+            }
+        }
+
+        #about {
+            padding: 50px 0;
+            color: black;
+            text-align: center;
+            background-color: #FFFFFF;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #about h5 {
+            font-size: 1.5rem;
+            color: #f5a623;
+            margin-bottom: 10px;
+        }
+
+        h5.get-to-know {
+            font-size: 1.5rem;
+            color: #f5a623;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+
+        #about h2 {
+            font-size: 2.5rem;
+            color: #222;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .about__container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about__me {
+            width: 100%;
+            max-width: 250px;
+            border-radius: 2rem;
+            background: linear-gradient(45deg, transparent, var(--color-primary), transparent);
+            display: grid;
+            place-items: center;
+        }
+
+        .about__me-image {
+            border-radius: 2rem;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            transform: rotate(9deg);
+            transition: var(--transition);
+        }
+
+        .about__me-image:hover {
+            transform: rotate(0);
+        }
+
+        .about__content {
+            max-width: 500px;
+        }
+
+
+        .about__cards {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+
+        .about__card {
+            background-color: #2c2c2c;
+            padding: 20px;
+            border-radius: 1rem;
+            text-align: center;
+            flex: 1;
+            transition: var(--transition);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .about__card:hover {
+            background: #444;
+        }
+
+
+
+        .about__icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .about__card h5 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: #f1f1f1;
+        }
+
+        .about__card small {
+            font-size: 0.8rem;
+            color: #ccc;
+        }
+
+        .btn {
+            background-color: #f1f1f1;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            color: #111;
+            border-radius: 1rem;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #e59417;
+            color: white;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .about__container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .about__me {
+                width: 60%;
+                margin: 0 auto;
+            }
+
+            .about__content {
+                max-width: 500px;
+                text-align: center;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+        }
+
+        @media screen and (max-width: 600px) {
+            .about__me {
+                width: 75%;
+            }
+
+            .about__cards {
+                flex-direction: column;
+            }
+
+            .about__card {
+                margin: 0.5rem 0;
+            }
+
+            .about__content p {
+                margin: 1.5rem 0;
+            }
+        }
+
+        #Skillsets {
+            padding: 50px 0;
+            background-color: #D3D3D3;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+
+        #Skillsets h5 {
+            font-size: 1.5rem;
+            color: #f5a623;
+            margin-bottom: 10px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        #Skillsets h2 {
+            font-size: 2.5rem;
+            color: #222;
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .Skillsets__container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            padding: 0 2rem;
+        }
+
+        .Skillsets__container>div {
+            background: white;
+            padding: 2.4rem 5rem;
+            border-radius: 2rem;
+            border: 1px solid transparent;
+            transition: 0.3s ease;
+        }
+
+        .Skillsets__container>div:hover {
+            background: transparent;
+            border-color: #f5a623;
+            cursor: default;
+        }
+
+        .Skillsets__container>div h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #1a7f72;
+        }
+
+        .Skillsets__content {
+            display: grid;
+            grid-template-columns: 1fr 0.75fr;
+            row-gap: 1rem;
+        }
+
+        .Skillsets__details {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .Skillsets__details-icon {
+            margin-top: 6px;
+            color: skyblue;
+        }
+
+        .text-skill {
+            color: gray;
+            font-size: 16px;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .Skillsets__container {
+                grid-template-columns: 1fr;
+            }
+
+            .Skillsets__container>div {
+                width: 80%;
+                padding: 2rem;
+                margin: 0 auto;
+            }
+
+            .Skillsets__content {
+                padding: 1rem;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .Skillsets__container {
+                gap: 1rem;
+            }
+
+            .Skillsets__container>div {
+                width: 100%;
+                padding: 2rem 1rem;
+            }
+        }
+
+        #learning-achievements {
+            padding: 50px 0;
+            background-color: #222222;
+            color: #222;
+            text-align: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        #learning-achievements h5 {
+            font-size: 1.5rem;
+            color: #f5a623;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+        }
+
+        #learning-achievements h2 {
+            font-size: 2.5rem;
+            color: #fff;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .learning-achievements__container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 0 50px;
+        }
+
+        .learning-achievements__service {
+            background: black;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .learning-achievements__service:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .learning-achievements__service-head {
+            background: #f5a623;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .learning-achievements__service-list {
+            padding: 20px;
+            list-style: none;
+            margin: 0;
+        }
+
+        .learning-achievements__service-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .learning-achievements__list-icon {
+            margin-right: 10px;
+        }
+
+
+        .learning-achievements__service-list b {
+            color: white;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .learning-achievements__container {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .learning-achievements__container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .learning-achievements__service {
+                padding: 15px;
+            }
+        }
+
+        .learning-achievements__service-head h3 {
+            color: black;
+        }
+
+        .individual-projects-section {
+            margin: 0;
+            padding: 2rem 0;
+            color: #fff;
+            background-color: #D3D3D3;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .individual-projects-container {
+            width: 90%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .projects-title {
+            text-align: center;
+            color: #f5a623;
+            margin-bottom: 2rem;
+        }
+
+        .projects-title h5 {
+            font-size: 1.5rem;
+            color: #f5a623;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .projects-title h2 {
+            font-size: 2.5rem;
+            color: #222;
+            font-weight: bold;
+            margin: 0.5rem 0 0;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 2rem;
+            will-change: transform;
+            transition: transform 0.1s linear;
+        }
+
+        .individual-project-item {
+            background: #A8C1D1;
+            padding: 1rem;
+            border-radius: 15px;
+            border: 1px solid transparent;
+            transition: border-color 0.3s ease, transform 0.3s ease;
+            flex-shrink: 0;
+            width: 250px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .individual-project-item:hover {
+            border-color: #f5a623;
+            transform: translateY(-10px);
+        }
+
+        .individual-project-item-image img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+
+        }
+
+        .individual-project-item h3 {
+            margin: 1rem 0;
+            color: #333333;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .individual-project-item-cta {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            gap: 1rem;
+        }
+
+        .btn-icon {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #007BFF;
+            color: #fff;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn-icon:hover {
+            transform: scale(1.2);
+            background: #82a3d1;
+        }
+
+        @keyframes scroll-carousel {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .individual-project-item {
+                width: 220px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .individual-project-item {
+                width: 180px;
+            }
+
+            .projects-title h2 {
+                font-size: 2rem;
+            }
+
+            .projects-title h5 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-track {
+                gap: 1rem;
+            }
+
+            .individual-project-item {
+                width: 150px;
+            }
+
+            .btn-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
+
+        .timeline-section {
+
+            padding: 100px 15px;
+            padding-top: 0px;
+            background: #FFFFFF;
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .timeline-section h2 {
+            font-size: 2.5rem;
+            color: #222;
+            /* Dark text color */
+            font-weight: bold;
+            margin-bottom: 40px;
+            text-align: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            padding-top: 50px;
+            opacity: 1;
+        }
+
+
+        .timeline-items {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .timeline-items::before {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 100%;
+            background-color: #A8C1D1;
+            left: calc(50% - 2.5px);
+        }
+
+        .timeline-items:hover::after {
+            background-color: #5DADE2;
+        }
+
+
+        .timeline-item {
+            margin-bottom: 40px;
+            width: 100%;
+            position: relative;
+
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: calc(50% + 30px);
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: calc(50% + 30px);
+        }
+
+        .timeline-dot {
+            height: 21px;
+            width: 21px;
+            background-color: #2A6F97;
+            position: absolute;
+            left: calc(50% - 10.5px);
+            border-radius: 50%;
+            top: 10px;
+        }
+
+        .timeline-date {
+            font-size: 20px;
+            font-weight: 800;
+            color: black;
+            margin: 6px 0 15px;
+        }
+
+        .timeline-content {
+            background-color: #EDF6FA;
+            padding: 30px;
+            border-radius: 1em;
+            cursor: pointer;
+            transition: 0.3s ease-in-out;
+            border: #000000;
+        }
+
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            background-color: #D9EAF7;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-content h3 {
+            font-size: 22px;
+            color: black;
+            margin: 0 0 10px;
+            text-transform: capitalize;
+            font-weight: 500;
+            font-weight: bold;
+        }
+
+        .timeline-content p {
+            color: rgb(0, 0, 0);
+            opacity: 0.9;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 22px;
+        }
+
+        .contact-form {
+            padding: 40px 20px;
+            background-color: #F5F5DC;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #333333;
+            font-size: 0.9rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #CCCCCC;
+            background-color: #FFFFFF;
+            color: #333333;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #5DADE2;
+            box-shadow: 0 0 5px rgba(93, 173, 226, 0.5);
+            outline: none;
+        }
+
+        .contact-form button {
+            padding: 12px;
+            background-color: #5DADE2;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .contact-form button:hover {
+            background-color: #4A91BC;
+            transform: scale(1.05);
+        }
+
+        #contact-form h2 {
+            text-align: center;
+            color: #333333;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-form {
+                padding: 30px 15px;
+            }
+
+            #contact-form h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-form form {
+                gap: 10px;
+            }
+        }
+
+        footer {
+            background-color: #2C3E50;
+            color: #ECF0F1;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer .social-icons a {
+            color: #ECF0F1;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        footer .social-icons a:hover {
+            color: #5DADE2;
+            transform: scale(1.1);
+        }
+
+        footer p {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #BDC3C7;
+        }
+
+        footer p a {
+            color: #5DADE2;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="Logo-removebg-preview.png" alt="Apex Predator Security Logo">
+            </div>
+            <div class="navbar-container">
+                <nav>
+                    <a href="#Skillsets">Skillsets</a>
+                    <a href="#individual-projects-section">Projects</a>
+                    <a href="#education">Education</a>
+                    <a href="#contact-form">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <header class="profile">
+        <div class="container profile__container">
+            <h5>Hello I'm</h5>
+            <h1>Yayati Ghadage</h1>
+            <h5 style="color: #00FFFF;">Experienced Security Analyst</h5>
+            <div class="cta">
+                <a id="downloadCvButton"
+                    href="https://drive.google.com/uc?export=download&id=1JRhUvn2A2cGpY7r7ESaSs5NVxB6Hva9N" download
+                    class="btn">Download CV</a>
+                <a href="#contact-form" class="btn btn-primary">Let's Talk</a>
+            </div>
+            <div class="me">
+                <img src="Yayati.jpg" alt="Profile Picture">
+            </div>
+        </div>
+    </header>
+    <script>
+        document.getElementById("downloadCvButton").addEventListener("click", function (event) {
+            event.preventDefault();
+            const downloadLink =
+                "https://drive.google.com/uc?export=download&id=1JRhUvn2A2cGpY7r7ESaSs5NVxB6Hva9N";
+            const anchor = document.createElement("a");
+            anchor.href = downloadLink;
+            anchor.download = "Yayati_Ghadage_CV.pdf";
+            document.body.appendChild(anchor);
+            anchor.click();
+            document.body.removeChild(anchor);
+        });
+    </script>
+    <section id="about">
+        <h5 class="get-to-know">Get To Know</h5>
+        <h2>About Me</h2>
+        <div class="about__content">
+            <div class="about__cards">
+                <div class="about__card">
+                    <span class="about__icon">🏅</span>
+                    <h5>Level</h5>
+                    <small>Mid-Level to Advanced</small>
+                </div>
+                <div class="about__card"
+                    onclick="document.getElementById('learning-achievements').scrollIntoView({ behavior: 'smooth' });">
+                    <span class="about__icon">📜</span>
+                    <h5>Certificate</h5>
+                    <small>+10 Certificates</small>
+                </div>
+                <div class="about__card"
+                    onclick="document.getElementById('individual-projects-section').scrollIntoView({ behavior: 'smooth' });">
+                    <span class="about__icon">📁</span>
+                    <h5>Projects</h5>
+                    <small>+3 Completed</small>
+                </div>
+            </div>
+            <p>
+                I’m a skilled Cybersecurity Implementor with expertise in network & Endpoint security and Threat
+                Hunting, focused on protecting digital assets and ensuring system integrity, confidentiality, and
+                availability. With 13 certifications from platforms like TryHackMe, Fortinet, Splunk, and
+                TrendMicro, I balance both defensive and offensive security knowledge. Passionate about staying
+                current with industry trends, I aim to pivot into offensive roles such as Penetration Testing,
+                Security Consulting, and Red Teaming in the coming years. I enjoy playing video games, watching
+                movies and anime, and exploring new places through travel.
+            </p>
+        </div>
+        </div>
+    </section>
+    <style>
+        .about__content {
+            max-width: 500px;
+            text-align: center;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+    <section id="Skillsets">
+        <h5>What Skill I Have</h5>
+        <h2>My Skillsets</h2>
+
+        <div class="Skillsets__container">
+            <div class="Skillsets__frontend">
+                <h3>Languages</h3>
+                <div class="Skillsets__content">
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="Python"></i>
+                        <div>
+                            <h4>Python</h4>
+                            <small class="text-skill">Intermediate</small>
+                        </div>
+                    </article>
+
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="JavaScript"></i>
+                        <div>
+                            <h4>Javascript</h4>
+                            <small class="text-skill">Basic</small>
+                        </div>
+                    </article>
+
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="Powershell"></i>
+                        <div>
+                            <h4>Powershell</h4>
+                            <small class="text-skill">Intermediate</small>
+                        </div>
+                    </article>
+
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="Bash"></i>
+                        <div>
+                            <h4>Bash</h4>
+                            <small class="text-skill">Intermediate</small>
+                        </div>
+                    </article>
+
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="C"></i>
+                        <div>
+                            <h4>C</h4>
+                            <small class="text-skill">Intermediate</small>
+                        </div>
+                    </article>
+
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="HTML & CSS"></i>
+                        <div>
+                            <h4>HTML & CSS</h4>
+                            <small class="text-skill">Advanced</small>
+                        </div>
+                    </article>
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="C++"></i>
+                        <div>
+                            <h4>C++</h4>
+                            <small class="text-skill">Basic</small>
+                        </div>
+                    </article>
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="Java"></i>
+                        <div>
+                            <h4>Java</h4>
+                            <small class="text-skill">Basic</small>
+                        </div>
+                    </article>
+                </div>
+            </div>
+            <div class="Skillsets__backend">
+                <h3>Technologies and Tools</h3>
+                <div class="Skillsets__content">
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="Nmap"></i>
+                        <div>
+                            <h4>Nmap</h4>
+                            <small class="text-skill">Advanced</small>
+                        </div>
+                    </article>
+
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="Wireshark"></i>
+                        <div>
+                            <h4>Wireshark</h4>
+                            <small class="text-skill">Intermediate</small>
+                        </div>
+                    </article>
+
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="Metasploit"></i>
+                        <div>
+                            <h4>Metasploit</h4>
+                            <small class="text-skill">Advanced</small>
+                        </div>
+                    </article>
+
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="BurpSuite"></i>
+                        <div>
+                            <h4>BurpSuite</h4>
+                            <small class="text-skill">Intermediate</small>
+                        </div>
+                    </article>
+
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="Nessus"></i>
+                        <div>
+                            <h4>Nessus</h4>
+                            <small class="text-skill">Intermediate</small>
+                        </div>
+                    </article>
+
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="Autopsy & Volatility"></i>
+                        <div>
+                            <h4>Autopsy & Volatility</h4>
+                            <small class="text-skill">Intermediate</small>
+                        </div>
+                    </article>
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="SIEM : FortiSIEM"></i>
+                        <div>
+                            <h4>FortiSIEM</h4>
+                            <small class="text-skill">Advanced</small>
+                        </div>
+                    </article>
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="EDR/XDR : Palo Alto Cortex XDR"></i>
+                        <div>
+                            <h4>Cortex XDR</h4>
+                            <small class="text-skill">Advanced</small>
+                        </div>
+                    </article>
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="DLP : Symantec & Endpoint DLP"></i>
+                        <div>
+                            <h4>Symantec & Endpoint DLP</h4>
+                            <small class="text-skill">Basic</small>
+                        </div>
+                    </article>
+                    <article class="Skillsets__details">
+                        <i class="Skillsets__details-icon bi-snow2" aria-label="FortiSandbox & Firewalls"></i>
+                        <div>
+                            <h4>FortiSandbox & Firewalls</h4>
+                            <small class="text-skill">Intermediate</small>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="learning-achievements">
+        <h5>What I Know</h5>
+        <h2>Learning and Achievement</h2>
+
+        <div class="container learning-achievements__container">
+            <article class="learning-achievements__service">
+                <div class="learning-achievements__service-head">
+                    <h3>Learning Paths</h3>
+                </div>
+                <div class="learning-achievements__service-list">
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>Computer Networking</b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>Digital Forensics</b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>Web Security</b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>Jr Penetration Tester</b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>Cyber Defense</b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>Security Engineer</b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>Threat Hunting</b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>Incident Response</b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>Security Engineer</b></p>
+                    </div>
+                </div>
+            </article>
+
+            <style>
+                .learning-achievements__list-item p {
+                    color: rgb(232, 232, 236);
+                    font-weight: bold;
+                }
+
+                .learning-achievements__list-item:hover {
+                    transform: scale(1.05);
+                    transition: transform 0.3s ease-in-out;
+                }
+            </style>
+
+            <article class="learning-achievements__service">
+                <div class="learning-achievements__service-head">
+                    <h3>Achievements</h3>
+                </div>
+                <div class="learning-achievements__service-list">
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p>
+                            <b>
+                                <a href="https://drive.google.com/file/d/1V8ElzcBJGGo2_hYrulma8kVpY9LHjUb9/view"
+                                    target="_blank" class="certificate-link">
+                                    Pre Security Course Certificate on TryHackMe
+                                </a>
+                            </b>
+                        </p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p>
+                            <b>
+                                <a href="https://drive.google.com/file/d/1VhUYGAD8fkGJzEIcRlF2c-gVfKHNk4kL/view"
+                                    target="_blank" class="certificate-link">
+                                    Introduction to Cybersecurity Course Certificate on TryHackMe
+                                </a>
+                            </b>
+                        </p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p>
+                            <b>
+                                <a href="https://drive.google.com/file/d/1XxOxmYilppmTE7Kd_xlWMz4jOIRADqDn/view"
+                                    target="_blank" class="certificate-link">
+                                    SOC Analyst Course Certificate on Thinknyx
+                                </a>
+                            </b>
+                        </p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p>
+                            <b>
+                                <a href="https://drive.google.com/file/d/1jlqtL8gxy4uEylmBND6wRJTRDTrEyFWk/view"
+                                    target="_blank" class="certificate-link">
+                                    SentinelOne Core Workshop Certificate by SentinelOne
+                                </a>
+                            </b>
+                        </p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p>
+                            <b>
+                                <a href="https://drive.google.com/file/d/10DJsEaZ3kJDdgCJM3sX_VdvXDltlLFh1/view"
+                                    target="_blank" class="certificate-link">
+                                    Splunk Learning Certificate by Splunk
+                                </a>
+                            </b>
+                        </p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p>
+                            <b>
+                                <a href="https://drive.google.com/file/d/1L4pvCPksb3k3sHVFYMyCahA-DI_Sl_7n/view"
+                                    target="_blank" class="certificate-link">
+                                    IBM QRadar SIEM Foundation Course Certificate by IBM
+                                </a>
+                            </b>
+                        </p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p>
+                            <b>
+                                <a href="https://drive.google.com/file/d/1acRJN2QI9TfIH6BAJSQGTN7c_NjnMDRz/view"
+                                    target="_blank" class="certificate-link">
+                                    Chronicle SIEM Fundamentals Course Certificate by Google
+                                </a>
+                            </b>
+                        </p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p>
+                            <b>
+                                <a href="https://drive.google.com/file/d/1PhuZ3tQp-cqWVlMwFh0-ADmBokD0HkBo/view"
+                                    target="_blank" class="certificate-link">
+                                    Cloud Computing Basics (Cloud 101) Course Certificate by Learnquest
+                                </a>
+                            </b>
+                        </p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p>
+                            <b>
+                                <a href="https://drive.google.com/file/d/1qPt-VPRSzE7Faaum5uibEU80Bg7tUMtZ/view"
+                                    target="_blank" class="certificate-link">
+                                    Prehacking, Exploitation, Advanced Course Certificate by Bittentech
+                                </a>
+                            </b>
+                        </p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p>
+                            <b>
+                                <a href="https://drive.google.com/file/d/1QMfiRpaxuOdyHgTc4YVpHad5SKfMbiIB/view"
+                                    target="_blank" class="certificate-link">
+                                    Cyber Security Summer Internship Course Certificate by Gurugram Police
+                                </a>
+                            </b>
+                        </p>
+                    </div>
+                </div>
+            </article>
+
+
+            <style>
+                .learning-achievements__list-item a {
+                    text-decoration: none;
+                    color: rgb(241, 241, 241);
+                }
+
+                .learning-achievements__list-item:hover {
+                    transform: scale(1.05);
+                    transition: transform 0.3s ease-in-out;
+                }
+
+                .certificate-link:hover {
+                    color: rgb(162, 0, 255);
+                }
+            </style>
+
+            <article class="learning-achievements__service">
+                <div class="learning-achievements__service-head">
+                    <h3>Research Platform</h3>
+                </div>
+                <div class="learning-achievements__service-list">
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://attack.mitre.org/" target="_blank" class="certificate-link">
+                                    MITRE ATT&CK
+                                </a>
+                            </b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://www.sans.org/security-resources/" target="_blank"
+                                    class="certificate-link">
+                                    SANS Institute
+                                </a>
+                            </b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://www.zerodayinitiative.com/" target="_blank" class="certificate-link">
+                                    ZeroDay Initiative (ZDI)
+                                </a>
+                            </b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://owasp.org/" target="_blank" class="certificate-link">
+                                    OWASP (Open Web Application Security Project)
+                                </a>
+                            </b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://www.exploit-db.com/" target="_blank" class="certificate-link">
+                                    Exploit-DB
+                                </a>
+                            </b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://cve.mitre.org/" target="_blank" class="certificate-link">
+                                    CVE (Common Vulnerabilities and Exposures)
+                                </a>
+                            </b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://tryhackme.com/" target="_blank" class="certificate-link">
+                                    TryHackMe
+                                </a>
+                            </b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://bazaar.abuse.ch/browse/" target="_blank" class="certificate-link">
+                                    MalwareBazaar
+                                </a>
+                            </b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://packetstormsecurity.com/" target="_blank" class="certificate-link">
+                                    Packet Storm Security
+                                </a>
+                            </b></p>
+                    </div>
+                    <!-- <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                            <a href="https://www.gartner.com/"
+                            target="_blank" class="certificate-link">
+                            Gartner
+                        </a>
+                        </b></p>
+                    </div> -->
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://defcon.org/" target="_blank" class="certificate-link">
+                                    Defcon Villages
+                                </a>
+                            </b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://www.blackhat.com/" target="_blank" class="certificate-link">
+                                    Black Hat Talks
+                                </a>
+                            </b></p>
+                    </div>
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://www.virustotal.com/" target="_blank" class="certificate-link">
+                                    Virustotal
+                                </a>
+                            </b></p>
+                    </div>
+                    <!-- <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                            <a href="https://any.run/"
+                            target="_blank" class="certificate-link">
+                            AnyRun Sandbox
+                        </a>
+                        </b></p>
+                    </div> -->
+                    <!-- <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                            <a href="https://www.nist.gov/cybersecurity"
+                            target="_blank" class="certificate-link">
+                            NIST
+                        </a>
+                        </b></p>
+                    </div> -->
+                    <div class="learning-achievements__list-item">
+                        <BsCheckLg class="learning-achievements__list-icon" />
+                        <p><b>
+                                <a href="https://www.cisa.gov/" target="_blank" class="certificate-link">
+                                    CISA
+                                </a>
+                            </b></p>
+                    </div>
+                </div>
+            </article>
+
+            <style>
+                .learning-achievements__list-item p {
+                    color: rgb(233, 233, 233);
+                    font-weight: bold;
+                }
+
+                .learning-achievements__list-item:hover {
+                    transform: scale(1.05);
+                    transition: transform 0.3s ease-in-out;
+                }
+            </style>
+
+        </div>
+    </section>
+    <section class="individual-projects-section" id="individual-projects-section">
+        <div class="individual-projects-container">
+            <!-- Title Section -->
+            <div class="projects-title">
+                <h5>My Projects</h5>
+                <h2>Portfolio</h2>
+            </div>
+
+            <div class="carousel-track-wrapper">
+                <div class="carousel-track" id="carousel-track">
+                    <div class="individual-project-item">
+                        <div class="individual-project-item-image">
+                            <img src="Blockchain.jpg" alt="Blockchain-based E-voting System">
+                        </div>
+                        <div class="individual-project-item-text">
+                            <h3>Blockchain-based E-voting</h3>
+                        </div>
+                        <div class="individual-project-item-link">
+                            <a href="https://github.com/ganesh-hash/Blockchain-based-E-VotingSystem" class="btn-icon"
+                                target="_blank">
+                                <i class="bi bi-link-45deg"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="individual-project-item">
+                        <div class="individual-project-item-image">
+                            <img src="XDRR.jpg" alt="Palo Alto Cortex XDR Remover">
+                        </div>
+                        <div class="individual-project-item-text">
+                            <h3>Palo Alto Cortex XDR Remover</h3>
+                        </div>
+                        <div class="individual-project-item-link">
+                            <a href="https://github.com/ganesh-hash/Palo-Alto-Cortex-XDR" class="btn-icon"
+                                target="_blank">
+                                <i class="bi bi-link-45deg"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="individual-project-item">
+                        <div class="individual-project-item-image">
+                            <img src="Pentest.jpg" alt="Penetration Testing Resources">
+                        </div>
+                        <div class="individual-project-item-text">
+                            <h3>Penetration Testing Resources</h3>
+                        </div>
+                        <div class="individual-project-item-link">
+                            <a href="https://www-ganeshghadage5005.gitbook.io/pentester-diary" class="btn-icon"
+                                target="_blank">
+                                <i class="bi bi-link-45deg"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="individual-project-item">
+                        <div class="individual-project-item-image">
+                            <img src="Siem.jpg" alt="Fortinet SIEM Implementation">
+                        </div>
+                        <div class="individual-project-item-text">
+                            <h3>Fortinet SIEM Implementation</h3>
+                        </div>
+                        <div class="individual-project-item-link">
+                            <a href="https://www.fortinet.com/products/siem/fortisiem" class="btn-icon" target="_blank">
+                                <i class="bi bi-link-45deg"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="individual-project-item">
+                        <div class="individual-project-item-image">
+                            <img src="XDR.jpg" alt="Cortex XDR Implementation">
+                        </div>
+                        <div class="individual-project-item-text">
+                            <h3>Cortex XDR Implementation</h3>
+                        </div>
+                        <div class="individual-project-item-link">
+                            <a href="https://www.paloaltonetworks.com/cortex/xdr" class="btn-icon" target="_blank">
+                                <i class="bi bi-link-45deg"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        const carouselTrack = document.getElementById("carousel-track");
+        const items = Array.from(carouselTrack.children);
+        const itemWidth = items[0].offsetWidth + 16;
+        items.forEach(item => {
+            const clone = item.cloneNode(true);
+            carouselTrack.appendChild(clone);
+        });
+
+        let scrollPosition = 0;
+        let autoScrollInterval;
+
+        function autoScroll() {
+            scrollPosition += 1;
+            if (scrollPosition >= items.length * itemWidth) {
+                scrollPosition = 0;
+            }
+            carouselTrack.style.transform = `translateX(-${scrollPosition}px)`;
+        }
+
+        function startAutoScroll() {
+            if (!autoScrollInterval) {
+                autoScrollInterval = setInterval(autoScroll, 16);
+            }
+        }
+
+        function stopAutoScroll() {
+            clearInterval(autoScrollInterval);
+            autoScrollInterval = null;
+        }
+
+        carouselTrack.addEventListener("mouseover", () => {
+            stopAutoScroll();
+        });
+        carouselTrack.addEventListener("mouseout", () => {
+            startAutoScroll();
+        });
+
+        items.forEach(item => {
+            item.addEventListener("click", (e) => {
+                stopAutoScroll();
+                e.stopPropagation();
+            });
+        });
+
+        window.addEventListener("click", (e) => {
+            if (!carouselTrack.contains(e.target)) {
+                startAutoScroll();
+            }
+        });
+        startAutoScroll();
+    </script>
+
+    <section class="timeline-section" id="education">
+        <h2>Education</h2>
+        <div class="timeline-items">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Aug '19 - May '22</div>
+                <div class="timeline-content">
+                    <h3>Bachelor Of Technology</h3>
+                    <p><strong>NCER Pune - Nutan College Of Engineering And Research</strong></p>
+                    <p><strong>CGPA:</strong>9.2/10</p>
+                    <p><strong>Location:</strong> Pune</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Jun '16 - Mar '19</div>
+                <div class="timeline-content">
+                    <h3>Diploma</h3>
+                    <p><strong>Bhaurao Patil College of Engineering, Satara</strong></p>
+                    <p><strong>Grade:</strong> First Class</p>
+                    <p><strong>Location:</strong> Satara</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-date">Jun '16</div>
+                <div class="timeline-content">
+                    <h3>SSC</h3>
+                    <p><strong>Bombay Metal Exchange Charitable Trust Vidhyalaya</strong></p>
+                    <p><strong>Location:</strong> Azadpur</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="contact-form" id="contact-form">
+        <h2>Contact Form</h2>
+        <form id="contactForm">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div id="alert-container"></div>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+        const hackersarehere = {
+            am: "ac-se94jxWxbd9LFV",
+            i: "service_ytyy1dt",
+            lost: "template_l698qlf"
+        };
+
+        (function () {
+            emailjs.init(hackersarehere.am);
+        })();
+
+        const MAX_ATTEMPTS = 2;
+        const BLOCK_TIME = 24 * 60 * 60 * 1000;
+
+        function getAttempts() {
+            return JSON.parse(localStorage.getItem('attempts')) || {
+                count: 0,
+                firstAttemptTime: Date.now()
+            };
+        }
+
+        function updateAttempts() {
+            const attempts = getAttempts();
+            attempts.count += 1;
+            if (attempts.count === 1) {
+                attempts.firstAttemptTime = Date.now();
+            }
+            localStorage.setItem('attempts', JSON.stringify(attempts));
+        }
+
+        function isBlocked() {
+            const attempts = getAttempts();
+            const timeElapsed = Date.now() - attempts.firstAttemptTime;
+            if (timeElapsed < BLOCK_TIME) {
+                return attempts.count >= MAX_ATTEMPTS;
+            } else {
+                localStorage.setItem('attempts', JSON.stringify({
+                    count: 0,
+                    firstAttemptTime: Date.now()
+                }));
+                return false;
+            }
+        }
+
+        function sanitizeInput(input) {
+            const doc = new DOMParser().parseFromString(input, 'text/html');
+            return doc.body.textContent || "";
+        }
+        document.getElementById("contactForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            if (isBlocked()) {
+                showAlert('danger', 'You have reached the maximum number of attempts. Please try again later.');
+                return;
+            }
+            const formData = {
+                name: sanitizeInput(document.getElementById("name").value),
+                email: sanitizeInput(document.getElementById("email").value),
+                subject: sanitizeInput(document.getElementById("subject").value),
+                message: sanitizeInput(document.getElementById("message").value),
+            };
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if (!emailPattern.test(formData.email)) {
+                showAlert('danger', 'Please enter a valid email address.');
+                return;
+            }
+            updateAttempts();
+            emailjs.send(hackersarehere.i, hackersarehere.lost, formData)
+                .then(function (response) {
+                    showAlert('success', 'Message sent successfully! Thanks for connecting.');
+                    console.log("SUCCESS!", response.status, response.text);
+                })
+                .catch(function (error) {
+                    showAlert('danger', 'Failed to send message. Please try again.');
+                    console.log("FAILED...", error);
+                });
+        });
+
+        function showAlert(type, message) {
+            const alertContainer = document.getElementById('alert-container');
+            alertContainer.innerHTML = `<div class="alert alert-${type} alert-dismissible fade show" role="alert">
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>`;
+
+            setTimeout(function () {
+                const alert = alertContainer.querySelector('.alert');
+                if (alert) {
+                    alert.classList.remove('show');
+                }
+            }, 5000);
+        }
+    </script>
+    </div>
+
+    </div>
+    <footer>
+        <p>&copy; Yayati Hitendra Ghadage. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/gane5hhhhhh?igsh=MW1hN2JiMjk5dWYyMQ==" target="_blank"
+                class="text-white mx-2">
+                <i class="bi bi-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/yayati-ghadage-684720209/" target="_blank" class="text-white mx-2">
+                <i class="bi bi-linkedin"></i>
+            </a>
+            <a href="https://github.com/ganesh-hash" target="_blank" class="text-white mx-2">
+                <i class="bi bi-github"></i>
+            </a>
+            <a href="https://tryhackme.com/p/Drakaris" target="_blank" class="text-white mx-2">
+                <i class="bi bi-laptop"></i>
+            </a>
+            <a href="https://play.picoctf.org/users/drakaris" target="_blank" class="text-white mx-2">
+                <i class="bi bi-book"></i>
+            </a>
+        </div>
+    </footer>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</body>
+
+</html>
+
+
+<!-- Hello! If you're reviewing the page source, please refrain from sending malicious requests. I'd love to hear any suggestions or feedback you may have, so feel free to connect with me! -->
